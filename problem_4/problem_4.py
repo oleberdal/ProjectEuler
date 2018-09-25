@@ -18,9 +18,8 @@ def find_largest_palindrome():
     palindromes = []
     for x in range(100, 1000):
         for y in range(x, 1000):
-            product = x*y
-            if is_palindrome(product):
-                palindromes.append(product)
+            if is_palindrome(x * y):
+                palindromes.append(x * y)
     return palindromes
 
 solution = max(find_largest_palindrome())
