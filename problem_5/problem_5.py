@@ -43,4 +43,4 @@ def smallest_divisible_number(n):
 
 solution = smallest_divisible_number(20)
 
-print("Solution: %s.\nExecution time: %s seconds." % (solution, time.time() - start_time))
+print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))

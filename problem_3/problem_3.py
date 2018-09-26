@@ -24,4 +24,4 @@ def find_primes(n, start=2):
 
 solution = max(find_primes(600851475143))
 
-print("Solution: %s.\nExecution time: %s seconds." % (solution, time.time() - start_time))
+print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))

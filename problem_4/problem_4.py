@@ -28,4 +28,4 @@ def find_largest_palindrome(digits):
 
 solution = max(find_largest_palindrome(3))
 
-print("Solution: %s.\nExecution time: %s seconds." % (solution, time.time() - start_time))
+print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))

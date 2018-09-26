@@ -31,4 +31,4 @@ def remove_odd(numbers):
 
 solution = sum(remove_odd(fib_below(4000000)))
 
-print("Solution: %s.\nExecution time: %s seconds." % (solution, time.time() - start_time))
+print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
