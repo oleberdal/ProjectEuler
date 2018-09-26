@@ -13,6 +13,7 @@ start_time = time.time()
 
 def reduce_to_primes(n, start=2):
     prime_factors = []
+
     for x in range(start, n + 1):
         if not n % x:
             n //= x

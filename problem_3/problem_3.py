@@ -14,6 +14,7 @@ start_time = time.time()
 
 def find_primes(n, start=2):
     prime_factors = []
+
     for x in range(start, n + 1):
         if not n % x:
             while not n % x:

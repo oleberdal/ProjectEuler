@@ -19,10 +19,12 @@ def is_palindrome(n):
 
 def find_largest_palindrome(digits):
     palindromes = []
+
     for x in range(10**(digits - 1), 10**digits):
         for y in range(x, 10**digits):
             if is_palindrome(x * y):
                 palindromes.append(x * y)
+
     return palindromes
 
 
