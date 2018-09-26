@@ -22,6 +22,11 @@ def find_primes(n, start=2):
             return prime_factors + ([] if n == 1 else find_primes(n, x + 1))
 
 
-solution = max(find_primes(600851475143))
+def main():
+    solution = max(find_primes(600851475143))
 
-print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+    print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+
+
+if __name__ == '__main__':
+    main()

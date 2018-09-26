@@ -29,6 +29,11 @@ def remove_odd(numbers):
     return [x for x in numbers if not x % 2]
 
 
-solution = sum(remove_odd(fib_below(4000000)))
+def main():
+    solution = sum(remove_odd(fib_below(4000000)))
 
-print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+    print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+
+
+if __name__ == '__main__':
+    main()

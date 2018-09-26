@@ -24,6 +24,11 @@ def sum_of_multiples(below, multiples):
     return total
 
 
-solution = sum_of_multiples(1000, [3, 5])
+def main():
+    solution = sum_of_multiples(1000, [3, 5])
 
-print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+    print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+
+
+if __name__ == '__main__':
+    main()

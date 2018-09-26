@@ -26,6 +26,11 @@ def find_largest_palindrome(digits):
     return palindromes
 
 
-solution = max(find_largest_palindrome(3))
+def main():
+    solution = max(find_largest_palindrome(3))
 
-print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+    print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+
+
+if __name__ == '__main__':
+    main()

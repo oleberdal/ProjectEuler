@@ -41,6 +41,11 @@ def smallest_divisible_number(n):
     return number
 
 
-solution = smallest_divisible_number(20)
+def main():
+    solution = smallest_divisible_number(20)
 
-print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+    print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
+
+
+if __name__ == '__main__':
+    main()
