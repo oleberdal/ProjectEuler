@@ -1,6 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
+Edited: 28.09.2018
 Version: Python 3.7.0
 
 The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
@@ -32,16 +33,20 @@ import time
 start_time = time.time()
 
 
+def multiply(sequence):
+    total = 1
+    for x in range(len(sequence)):
+        total *= int(sequence[x])
+
+    return total
+
+
 def greatest_adjacent_product(digit, adjacent):
     possible_subgits = [e for e in digit.split("0") if len(e) >= adjacent]
-
     products = []
     for subgit in possible_subgits:
         for x in range(len(subgit) - adjacent + 1):
-            product = 1
-            for y in range(adjacent):
-                product *= int(subgit[x + y])
-            products.append(product)
+            products.append(multiply(subgit[x:adjacent + x]))
 
     return max(products)
 

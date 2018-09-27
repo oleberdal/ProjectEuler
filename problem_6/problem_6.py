@@ -1,6 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
+Edited: 28.09.2018
 Version: Python 3.7.0
 
 The sum of the squares of the first ten natural numbers is,

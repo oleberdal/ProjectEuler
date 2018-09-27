@@ -1,6 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
+Edited: 28.09.2018
 Version: Python 3.7.0
 
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
@@ -13,7 +14,6 @@ start_time = time.time()
 
 def reduce_to_primes(n, start=2):
     prime_factors = []
-
     for x in range(start, n + 1):
         if not n % x:
             n //= x

@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 25.09.2018
-Edited: 26.09.2018
+Edited: 28.09.2018
 Version: Python 3.7.0
 
 The prime factors of 13195 are 5, 7, 13 and 29.
@@ -14,7 +14,6 @@ start_time = time.time()
 
 def find_primes(n, start=2):
     prime_factors = []
-
     for x in range(start, n + 1):
         if not n % x:
             while not n % x:
