@@ -24,9 +24,9 @@ def is_prime(n, primes):
     return True
 
 
-def find_prime_number(n):
+def find_prime_number(i):
     primes = [3, 5]
-    bound = n - 1
+    bound = i - 1
     c = 7
     while len(primes) < bound:
         if is_prime(c, primes):
