@@ -35,8 +35,8 @@ import time
 start_time = time.time()
 
 
-def greatest_adjacent_product(input, n):
-    grid = [list(map(int, x.split(" "))) for x in input.split('\n')]
+def greatest_adjacent_product(input_grid, n):
+    grid = [list(map(int, x.split(" "))) for x in input_grid.split('\n')]
     products = []
     for x in range(len(grid)):
         for y in range(len(grid[x]) - n + 1):
