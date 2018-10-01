@@ -13,11 +13,6 @@ import time
 start_time = time.time()
 
 
-def is_palindrome(n):
-    n = str(n)
-    return n == n[::-1]
-
-
 def find_largest_palindrome(digits):
     palindromes = []
     for x in range(10**(digits - 1), 10**digits):
@@ -26,6 +21,11 @@ def find_largest_palindrome(digits):
                 palindromes.append(x * y)
 
     return palindromes
+
+
+def is_palindrome(n):
+    n = str(n)
+    return n == n[::-1]
 
 
 def main():
