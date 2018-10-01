@@ -1,7 +1,6 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
-Edited: 28.09.2018
 Version: Python 3.7.0
 
 https://projecteuler.net/problem=7:
@@ -13,8 +12,19 @@ import time
 start_time = time.time()
 
 
-def is_prime(n, primes):
-    bound = int(n**0.5) + 1
+def find_prime_number(i):
+    primes = [2, 3, 5]
+    c = 7
+    while len(primes) < i:
+        if is_current_prime(c, primes):
+            primes.append(c)
+        c += 2
+
+    return primes[i - 1]
+
+
+def is_current_prime(n, primes):
+    bound = int(n**0.5)
     i = 0
     while primes[i] <= bound:
         if not n % primes[i]:
@@ -22,18 +32,6 @@ def is_prime(n, primes):
         i += 1
 
     return True
-
-
-def find_prime_number(i):
-    primes = [3, 5]
-    bound = i - 1
-    c = 7
-    while len(primes) < bound:
-        if is_prime(c, primes):
-            primes.append(c)
-        c += 2
-
-    return primes[-1]
 
 
 def main():

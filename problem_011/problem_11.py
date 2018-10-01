@@ -39,6 +39,7 @@ def greatest_adjacent_product(input_grid, n):
     grid = [list(map(int, x.split(" "))) for x in input_grid.split('\n')]
     products = []
     for x in range(len(grid)):
+        out_of_xrange = x > len(grid[x]) - n
         for y in range(len(grid[x]) - n + 1):
             horizontal = 1
             vertical = 1
@@ -46,12 +47,12 @@ def greatest_adjacent_product(input_grid, n):
             diagonal_u = 1
             for z in range(n):
                 horizontal *= grid[x][y + z]
-                if x <= len(grid[x]) - n:
+                if not out_of_xrange:
                     vertical *= grid[x + z][y]
                     diagonal_d *= grid[x + z][y + z]
                     diagonal_u *= grid[x + n - z - 1][y + z]
             products.append(horizontal)
-            if x <= len(grid[x]) - n:
+            if not out_of_xrange:
                 products.append(vertical)
                 products.append(diagonal_d)
                 products.append(diagonal_u)

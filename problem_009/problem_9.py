@@ -16,10 +16,6 @@ import time
 start_time = time.time()
 
 
-def pythagorean(x, y):
-    return (x**2 + y**2)**0.5
-
-
 def find_pythagorean_triplet(roof):
     for a in range(1, int(roof / (2 + 2**0.5)) + 1):
         b = (roof * (a - (roof / 2))) / (a - roof)
@@ -27,6 +23,10 @@ def find_pythagorean_triplet(roof):
             return [a, int(b), int(pythagorean(a, b))]
 
     return [-1]
+
+
+def pythagorean(x, y):
+    return (x**2 + y**2)**0.5
 
 
 def multiply_sequence(sequence):

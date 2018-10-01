@@ -1,7 +1,6 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 28.09.2018
 Version: Python 3.7.0
 
 https://projecteuler.net/problem=8:
@@ -34,14 +33,6 @@ import time
 start_time = time.time()
 
 
-def multiply_sequence(sequence):
-    total = 1
-    for x in range(len(sequence)):
-        total *= int(sequence[x])
-
-    return total
-
-
 def greatest_adjacent_product(adjacent, digit):
     possible_subgits = [e for e in digit.split("0") if len(e) >= adjacent]
     products = []
@@ -50,6 +41,14 @@ def greatest_adjacent_product(adjacent, digit):
             products.append(multiply_sequence(subgit[x:adjacent + x]))
 
     return max(products)
+
+
+def multiply_sequence(sequence):
+    total = 1
+    for x in range(len(sequence)):
+        total *= int(sequence[x])
+
+    return total
 
 
 def main():
