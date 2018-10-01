@@ -19,16 +19,20 @@ import time
 start_time = time.time()
 
 
-def list_of_squared_numbers(to):
-    return [x**2 for x in range(to + 1)]
+def difference_between(first):
+    return abs(sum_of_numbers(100)**2 - sum(list_of_squared_numbers(100)))
 
 
 def sum_of_numbers(to):
     return to * (to + 1) / 2
 
 
+def list_of_squared_numbers(to):
+    return [x**2 for x in range(to + 1)]
+
+
 def main():
-    solution = abs(sum_of_numbers(100)**2 - sum(list_of_squared_numbers(100)))
+    solution = int(difference_between(100))
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
