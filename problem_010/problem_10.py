@@ -18,7 +18,7 @@ def find_prime_numbers_below(below):
     for p in range(3, below, 2):
         if sieve[p]:
             total += p
-            for i in range(p * p, below, p):
+            for i in range(p * p, below, p * 2):
                 sieve[i] = False
 
     return total
