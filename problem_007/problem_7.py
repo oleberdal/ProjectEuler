@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
-Edited: 01.10.2018
+Edited: 18.01.2019
 Version: Python 3.7.0
 
 https://projecteuler.net/problem=7:
@@ -21,7 +21,7 @@ def find_prime_number(i):
             primes.append(c)
         c += 2
 
-    return primes[i - 1]
+    return primes[-1]
 
 
 def is_current_prime(n, primes):
