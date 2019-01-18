@@ -21,7 +21,7 @@ def find_prime_number(i):
             primes.append(c)
         c += 2
 
-    return primes[-1]
+    return primes[i - 1]
 
 
 def is_current_prime(n, primes):
