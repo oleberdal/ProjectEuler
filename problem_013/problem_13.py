@@ -1,7 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 18.01.2019
-Version: Python 3.7.0
+Edited: 05.02.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=13:
 Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.

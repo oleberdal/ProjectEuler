@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 05.02.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=8:
 The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.

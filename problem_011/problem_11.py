@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 01.10.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 05.02.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=11:
 In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
