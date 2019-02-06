@@ -82,7 +82,7 @@ def main():
     weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     days_in_months = [31, 'check_leap_year', 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-    solution = number_of_weekdays_on_x_of_month(1, "Sunday", "1.1.101", "31.12.2000", ("17.05.1950", "Wednesday"))
+    solution = number_of_weekdays_on_x_of_month(1, "Sunday", "01.01.1901", "31.12.2000", ("17.05.1950", "Wednesday"))
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
