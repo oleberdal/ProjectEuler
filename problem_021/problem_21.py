@@ -37,17 +37,12 @@ def sum_of_amicable_numbers_below(below):
 
 
 def proper_divisors_of(number):
-    divisors = [1]
-    d, limit = 2, number ** 0.5
-    while d <= limit:
-        if not number % d:
-            divisors.append(d)
-            remainder = number // d
-            if remainder not in divisors:
-                divisors.append(remainder)
-        d += 1
-
-    return divisors
+    yield 1
+    for i in range(2, int(number ** 0.5 + 1)):
+        if not number % i:
+            yield i
+            if i * i != number:
+                yield number // i
 
 
 def main():

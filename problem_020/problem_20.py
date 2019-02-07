@@ -19,8 +19,12 @@ def sum_of_digits_in_factorial(number):
     return sum(map(int, str(factorial(number))))
 
 
-def factorial(n):
-    return n * factorial(n - 1) if n > 1 else 1
+def factorial(number):
+    # return number * factorial(number - 1) if number > 1 else 1
+    product = 1
+    for n in range(number, 1, -1):
+        product *= n
+    return product
 
 
 def main():

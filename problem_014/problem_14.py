@@ -1,6 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
+Edited: 07.02.2019
 Version: Python 3.6.7
 
 https://projecteuler.net/problem=14:
@@ -23,20 +24,19 @@ start_time = time.time()
 
 
 def longest_collatz_chain_below(maximum):
-    global collatz_chain_length
     collatz_chain_length = {1:1}
 
     for x in range(maximum - 1, 1, -1):
-        collatz(x)
+        collatz(x, collatz_chain_length)
 
     return list(collatz_chain_length)[list(collatz_chain_length.values()).index(max(collatz_chain_length.values()))]
 
 
-def collatz(number):
-    if number not in collatz_chain_length:
-        next_collatz = number//2 if not number % 2 else 3*number + 1
-        collatz(next_collatz)
-        collatz_chain_length[number] = collatz_chain_length[next_collatz] + 1
+def collatz(number, collatz_chain):
+    if number not in collatz_chain:
+        next_collatz = number // 2 if not number % 2 else 3 * number + 1
+        collatz(next_collatz, collatz_chain)
+        collatz_chain[number] = collatz_chain[next_collatz] + 1
 
 
 def main():
