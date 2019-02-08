@@ -1,6 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 06.02.2019
+Edited: 08.02.2019
 Version: Python 3.6.7
 
 https://projecteuler.net/problem=21:
@@ -37,8 +38,9 @@ def sum_of_amicable_numbers_below(below):
 
 
 def proper_divisors_of(number):
-    yield 1
-    for i in range(2, int(number ** 0.5 + 1)):
+    if number > 1:
+        yield 1
+    for i in range(2, int(number ** 0.5) + 1):
         if not number % i:
             yield i
             if i * i != number:
