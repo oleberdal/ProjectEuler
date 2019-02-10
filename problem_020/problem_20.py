@@ -20,7 +20,6 @@ def sum_of_digits_in_factorial(number):
 
 
 def factorial(number):
-    # return number * factorial(number - 1) if number > 1 else 1
     product = 1
     for n in range(number, 1, -1):
         product *= n
