@@ -25,13 +25,13 @@ def get_lexicographic_n(n, objects):
     if n == 0:
         return ''.join(map(str, objects))
 
-    for x in range(len(set(objects))):
-        permutations = get_permutations(objects[:objects.index(sorted(list(set(objects)))[x])] + objects[objects.index(sorted(list(set(objects)))[x]) + 1:])
+    for d in range(len(set(objects))):
+        permutations = get_permutations(objects[:objects.index(sorted(list(set(objects)))[d])] + objects[objects.index(sorted(list(set(objects)))[d]) + 1:])
         if n < permutations:
             break
         n -= permutations
 
-    return objects.pop(objects.index(sorted(list(set(objects)))[x])) + get_lexicographic_n(n, sorted(objects))
+    return objects.pop(objects.index(sorted(list(set(objects)))[d])) + get_lexicographic_n(n, sorted(objects))
 
 
 def get_permutations(objects):
@@ -39,11 +39,8 @@ def get_permutations(objects):
 
     atoms = {}
     for o in objects:
-        if o not in atoms:
-            atoms[o] = 1
-        else:
-            atoms[o] += 1
-            permutations //= atoms[o]
+        atoms[o] = atoms.get(o, 0) + 1
+        permutations //= atoms[o]
 
     return permutations
 
