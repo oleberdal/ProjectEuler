@@ -115,11 +115,11 @@ start_time = time.time()
 def first_digits_of_sum_of_numbers(digits, numbers):
     numbers = numbers.split("\n")
 
-    sum = 0
+    total = 0
     for number in numbers:
-        sum += int(number)
+        total += int(number)
 
-    return str(sum)[0:digits]
+    return str(total)[0:digits]
 
 
 def main():
