@@ -1,7 +1,6 @@
 """
 Author: Berdal, Ole
-Created: 06.02.2019
-Edited: 07.02.2019
+Created: 07.02.2019
 Version: Python 3.6.7
 
 https://projecteuler.net/problem=19:
@@ -22,61 +21,32 @@ import time
 start_time = time.time()
 
 
-def number_of_weekdays_on_x_of_month(x, weekday, from_date, to_date, initial_date):
-    weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
-    from_date, to_date = tuple(map(int, from_date.split('.'))), tuple(map(int, to_date.split('.')))
-    initial_date, initial_day = list(map(int, initial_date[0].split('.'))), weekdays.index(initial_date[1])
-    weekday = weekdays.index(weekday)
-
-    checked_below = not date1_before_date2(date1=from_date, date2=initial_date)
-    checked_above = date1_before_date2(date1=to_date, date2=initial_date)
-
-    number_of_weekdays = 0
-
-    date = initial_date.copy() if not checked_below else next_date(date=initial_date, step=-1)
-    day = initial_day - (0 if not checked_below else 1)
-    step = -1 if not checked_below else 1
-    while not checked_below or not checked_above:
-        date = next_date(date=date, step=step)
-        day += step
-        if date[0] == x and day % 7 == weekday and not date1_before_date2(date1=to_date, date2=date) and not date1_before_date2(date1=date, date2=from_date):
-            number_of_weekdays += 1
-        if not checked_below and not date1_before_date2(date1=from_date, date2=date):
-            checked_below = True
-            date = next_date(date=initial_date, step=step)
-            day = initial_day
-            step = 1
-        elif not checked_above and not date1_before_date2(date1=date, date2=to_date):
-            checked_above = True
-
-    return number_of_weekdays
+def first_of_month(weekday, year_start, year_end):
+    total = 0
+    for year in range(year_start, year_end + 1):
+        for month in range(1, 13):
+            if day_of_week(year=year, month=month, day=1) == weekday:
+                total += 1
+    return total
 
 
-def date1_before_date2(date1, date2):
-    return date1[2] < date2[2] or date1[2] == date2[2] and date1[1] < date2[1] or date1[2] == date2[2] and date1[1] == date2[1] and date1[0] < date2[0]
+def day_of_week(year, month, day):
+    d = day
+    m = (month - 3) % 12 + 1
+    y = year - 1 if m > 10 else year
+    y, c = y % 100, (y - (y % 100)) / 100
+
+    w = (d + floor(n=2.6 * m - 0.2) + y + floor(n=y / 4) + floor(n=c / 4) - 2 * c - 1) % 7
+
+    return int(w)
 
 
-def next_date(date, step):
-    if not 1 <= date[0] + step <= days_in_month(month=date[1], year=date[2]):
-        if not 1 <= date[1] + step <= 12:
-            date[2] += step
-            date[1] -= step * 12
-        date[1] += step
-        date[0] -= step * days_in_month(month=date[1] - bool(step == 1), year=date[2])
-    date[0] += step
-
-    return date
-
-
-def days_in_month(month, year):
-    days_in_months = [31, 28 + bool(not year % 4 and year % 100 or not year % 400), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-    return days_in_months[month - 1]
+def floor(n):
+    return int(n) if n >= 0 or int(n) == n else int(n) - 1
 
 
 def main():
-    solution = number_of_weekdays_on_x_of_month(x=1, weekday="Sunday", from_date="01.01.1901", to_date="31.12.2000", initial_date=("01.01.1900", "Monday"))
+    solution = first_of_month(weekday=6, year_start=1901, year_end=2000)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
