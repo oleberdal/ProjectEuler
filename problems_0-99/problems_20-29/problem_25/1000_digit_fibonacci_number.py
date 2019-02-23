@@ -29,17 +29,17 @@ import time
 start_time = time.time()
 
 
-def index_of_nth_term_with_x_digits(digits):
-    fib_a, fib_b, n = 1, 1, 2
+def index_of_first_term_with_x_digits(digits):
+    fib_a, fib_b, i = 1, 1, 2
 
     while fib_b // 10**(digits - 1) < 1:
-        fib_a, fib_b, n = fib_b, fib_a + fib_b, n + 1
+        fib_a, fib_b, i = fib_b, fib_a + fib_b, i + 1
 
-    return n
+    return i
 
 
 def main():
-    solution = index_of_nth_term_with_x_digits(digits=1000)
+    solution = index_of_first_term_with_x_digits(digits=1000)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
