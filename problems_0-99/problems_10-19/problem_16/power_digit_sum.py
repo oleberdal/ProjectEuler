@@ -4,9 +4,9 @@ Created: 05.02.2019
 Version: Python 3.6.7
 
 https://projecteuler.net/problem=16:
-2^15 = 32768 and the sum of its number is 3 + 2 + 7 + 6 + 8 = 26.
+2¹⁵ = 32768 and the sum of its number is 3 + 2 + 7 + 6 + 8 = 26.
 
-What is the sum of the number of the number 2^1000?
+What is the sum of the number of the number 2¹⁰⁰⁰?
 """
 import time
 start_time = time.time()
