@@ -21,7 +21,7 @@ start_time = time.time()
 
 
 def distinct_terms_of_exponential_sequence_between(lower, upper):
-    return len(set(a**b for b in range(lower, upper + 1) for a in range(lower, upper + 1)))
+    return len(set(a**b for a in range(lower, upper + 1) for b in range(lower, upper + 1)))
 
 
 def main():
