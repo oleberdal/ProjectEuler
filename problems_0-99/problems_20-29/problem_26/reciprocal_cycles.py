@@ -24,14 +24,14 @@ start_time = time.time()
 
 
 def unit_fraction_with_longest_recurring_cycle(below):
-    for p in reversed(list_of_primes(until=below)):
+    for p in reversed(list_of_primes(below=below)):
         if is_full_reptend_prime(prime=p):
             return p
 
 
-def list_of_primes(until):
+def list_of_primes(below):
     primes = [2]
-    sieve = [True] * ((until - 2) // 2)
+    sieve = [True] * ((below - 2) // 2)
 
     for i in range(len(sieve)):
         if sieve[i]:
