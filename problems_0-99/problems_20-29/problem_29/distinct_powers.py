@@ -25,7 +25,7 @@ def distinct_terms_of_exponential_sequence_between(lower, upper):
 
 
 def main():
-    solution = distinct_terms_of_exponential_sequence_between(lower=2, upper=1000)
+    solution = distinct_terms_of_exponential_sequence_between(lower=2, upper=100)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
