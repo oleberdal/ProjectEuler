@@ -21,45 +21,11 @@ start_time = time.time()
 
 
 def distinct_terms_of_exponential_sequence_between(lower, upper):
-    primes = list_of_primes(until=upper)
-
-    terms = []
-    for base in range(lower, upper + 1):
-        base_primes, index = {}, 0
-
-        while base != 1:
-            prime = primes[index]
-            while not base % prime:
-                base //= prime
-                base_primes[prime] = base_primes.get(prime, 0) + 1
-            index += 1
-
-        for exponent in range(lower, upper + 1):
-            exponential_primes = base_primes.copy()
-            for prime in exponential_primes.keys():
-                exponential_primes[prime] *= exponent
-            if exponential_primes not in terms:
-                terms.append(exponential_primes)
-
-    return len(terms)
-
-
-def list_of_primes(until):
-    primes = [2]
-    sieve = [True] * ((until - 1) // 2)
-
-    for i in range(len(sieve)):
-        if sieve[i]:
-            prime = 2 * (i + 1) + 1
-            primes.append(prime)
-            for r in range((prime**2 - 3) // 2, len(sieve), prime):
-                sieve[r] = False
-
-    return primes
+    return len(set(a**b for b in range(lower, upper + 1) for a in range(lower, upper + 1)))
 
 
 def main():
-    solution = distinct_terms_of_exponential_sequence_between(lower=2, upper=100)
+    solution = distinct_terms_of_exponential_sequence_between(lower=2, upper=1000)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
