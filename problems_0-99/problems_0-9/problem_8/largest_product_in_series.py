@@ -34,29 +34,28 @@ import time
 start_time = time.time()
 
 
-def greatest_adjacent_product(adjacent, digits):
-    possible_subgits = [e for e in digits.split("0") if len(e) >= adjacent]
-    products = []
-    for subgit in possible_subgits:
-        for x in range(len(subgit) - adjacent + 1):
-            products.append(multiply_sequence(sequence=subgit[x:adjacent + x]))
+def greatest_adjacent_product(digits, adjacent):
+    greatest_product = -1
+    for sub_digit in [e for e in digits.split('0') if len(e) >= adjacent]:
+        for x in range(len(sub_digit) - adjacent + 1):
+            greatest_product = max(greatest_product, multiply_sequence(sequence=sub_digit[x:x + adjacent]))
 
-    return max(products)
+    return greatest_product
 
 
 def multiply_sequence(sequence):
     total = 1
-    for x in sequence:
-        total *= int(x)
+    for digit in sequence:
+        total *= int(digit)
 
     return total
 
 
 def main():
     with open('data/number', 'r') as file:
-        number = file.readline()
+        number = ''.join(file.readlines()).replace('\n', '')
 
-    solution = greatest_adjacent_product(adjacent=13, digits=number)
+    solution = greatest_adjacent_product(digits=number, adjacent=13)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
