@@ -13,41 +13,33 @@ import time
 start_time = time.time()
 
 
-def smallest_divisible_number(primes):
-    numbers = []
-    for x in range(2, primes + 1):
-        numbers.append(reduce_to_primes(number=x))
-
+def smallest_number_divisible_by(divisors):
     prime_factors = {}
-    for primes in numbers:
-        for prime, n in primes.items():
-            if prime_factors.get(prime, 0) < n:
-                prime_factors[prime] = n
+    for divisor in divisors:
+        for prime, n in reduce_to_primes(number=divisor).items():
+            prime_factors[prime] = max(prime_factors.get(prime, 0), n)
 
     divisible_number = 1
-    for prime, x in prime_factors.items():
-        divisible_number *= prime ** x
+    for prime, exponent in prime_factors.items():
+        divisible_number *= prime**exponent
 
     return divisible_number
 
 
 def reduce_to_primes(number, start=3):
-    start = 2 if not number % 2 else start
-    bound = int(number ** 0.5) + 1
-    step = 1 + number % 2
     prime_factors = {}
-    for x in range(start, bound, step):
-        if not number % x:
-            while not number % x:
-                number //= x
-                prime_factors[x] = prime_factors.get(x, 0) + 1
-            prime_factors.update(reduce_to_primes(number=number, start=x + 1 + x % 2))
+    for divisor in range(2 if not number % 2 else start, int(number ** 0.5) + 1, 1 + number % 2):
+        if not number % divisor:
+            while not number % divisor:
+                number //= divisor
+                prime_factors[divisor] = prime_factors.get(divisor, 0) + 1
+            prime_factors.update(reduce_to_primes(number=number, start=divisor + divisor % 2 + 1))
             return prime_factors
     return {number: 1} if number > 1 else {}
 
 
 def main():
-    solution = smallest_divisible_number(primes=20)
+    solution = smallest_number_divisible_by(divisors=range(2, 21))
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
