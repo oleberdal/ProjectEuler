@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 25.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 27.03.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=3:
 The prime factors of 13195 are 5, 7, 13 and 29.
@@ -14,18 +14,13 @@ start_time = time.time()
 
 
 def find_prime_factors(number, start=3):
-    start = 2 if not number % 2 else start
-    bound = int(number ** 0.5) + 1
-    step = 1 if not number % 2 else 2
-    prime_factors = []
-    for x in range(start, bound, step):
-        if not number % x:
-            while not number % x:
-                number //= x
-            prime_factors.append(x)
-            return prime_factors + find_prime_factors(number, x + 1 + x % 2)
-    else:
-        return [number] if number > 1 else []
+    for divisor in range(2 if not number % 2 else start, int(number**0.5) + 1, 1 + number % 2):
+        if not number % divisor:
+            while not number % divisor:
+                number //= divisor
+            return [divisor] + find_prime_factors(number, divisor + divisor % 2 + 1)
+
+    return [number] if number > 1 else []
 
 
 def main():
