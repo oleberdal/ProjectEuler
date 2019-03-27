@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 27.03.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=6:
 The sum of the squares of the first ten natural numbers is,
@@ -19,24 +19,12 @@ import time
 start_time = time.time()
 
 
-def difference_between(first):
-    return int(abs(sum_of_numbers(to=first)**2 - sum_of_squared_numbers(to=first)))
-
-
-def sum_of_numbers(to):
-    return to * (to + 1) / 2
-
-
-def sum_of_squared_numbers(to):
-    total = 0
-    for x in range(1, to + 1):
-        total += x * (2 * (to - x) + 1)
-
-    return total
+def difference_between_square_of_sum_and_sum_of_squares(until):
+    return (until * (until + 1) // 2)**2 - sum([n**2 for n in range(1, until + 1)])
 
 
 def main():
-    solution = difference_between(first=100)
+    solution = difference_between_square_of_sum_and_sum_of_squares(until=100)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
