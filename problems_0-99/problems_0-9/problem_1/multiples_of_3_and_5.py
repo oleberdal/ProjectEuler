@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 25.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 27.03.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=1:
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -15,10 +15,10 @@ start_time = time.time()
 
 def sum_of_multiples(below, multiples):
     total = 0
-    for x in range(below):
-        for m in multiples:
-            if not x % m:
-                total += x
+    for number in range(below):
+        for multiple in multiples:
+            if not number % multiple:
+                total += number
                 break
 
     return total
