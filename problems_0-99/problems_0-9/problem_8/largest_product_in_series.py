@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 05.02.2019
+Edited: 27.03.2019
 Version: Python 3.6.7
 
 https://projecteuler.net/problem=8:

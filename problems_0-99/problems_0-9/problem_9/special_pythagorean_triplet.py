@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 27.03.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=9:
 A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
@@ -22,9 +22,9 @@ def find_pythagorean_triplet(roof):
     for a in range(1, int(roof / (2 + 2**0.5)) + 1):
         b = roof * ((roof / 2) - a) / (roof - a)
         if b.is_integer() and a != b:
-            return [a, int(b), int(pythagorean(a, b))]
+            return a, int(b), int(pythagorean(a, b))
 
-    return [-1]
+    return -1
 
 
 def pythagorean(x, y):
@@ -33,8 +33,8 @@ def pythagorean(x, y):
 
 def multiply_sequence(sequence):
     product = 1
-    for x in range(len(sequence)):
-        product *= sequence[x]
+    for number in sequence:
+        product *= number
 
     return product
 
