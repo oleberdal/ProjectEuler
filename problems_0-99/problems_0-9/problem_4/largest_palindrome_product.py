@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 25.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 27.03.2019
+Version: Python 3.6.7
 
 https://projecteuler.net/problem=4:
 A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -17,14 +17,13 @@ def find_largest_palindrome(digits):
     palindromes = []
     for x in range(10**(digits - 1), 10**digits):
         for y in range(x, 10**digits):
-            if is_palindrome(x * y):
+            if is_palindrome(str(x * y)):
                 palindromes.append(x * y)
 
     return palindromes
 
 
 def is_palindrome(n):
-    n = str(n)
     return n == n[::-1]
 
 
