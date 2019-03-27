@@ -14,19 +14,17 @@ start_time = time.time()
 
 
 def find_prime_number(n):
-    primes = [2, 3, 5]
-    current = 7
+    primes, number = [2], 3
     while len(primes) < n:
-        if is_prime(number=current, primes=primes):
-            primes.append(current)
-        current += 2
+        if is_prime(number=number, primes=primes):
+            primes.append(number)
+        number += 2
 
     return primes[n - 1]
 
 
 def is_prime(number, primes):
-    bound = int(number ** 0.5)
-    i = 0
+    bound, i = int(number**0.5), 0
     while primes[i] <= bound:
         if not number % primes[i]:
             return False
