@@ -20,7 +20,7 @@ def find_largest_palindrome(digits):
             if is_palindrome(str(x * y)):
                 palindromes.append(x * y)
 
-    return palindromes
+    return max(palindromes)
 
 
 def is_palindrome(n):
@@ -28,7 +28,7 @@ def is_palindrome(n):
 
 
 def main():
-    solution = max(find_largest_palindrome(digits=3))
+    solution = find_largest_palindrome(digits=3)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
