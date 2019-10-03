@@ -1,14 +1,13 @@
 """
 Author: Berdal, Ole
 Created: 02.03.2019
-Edited: 11.03.2019
-Version: Python 3.6.8
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=27:
-Euler discovered the remarkable quadratic formula:
-n²+n+41
+Euler discovered the remarkable quadratic formula: n²+n+41
 
-It turns out that the formula will produce 40 primes for the consecutive integer values 0≤n≤39. However, when n=40,40²+40+41=40(40+1)+41 is divisible by 41, and certainly when n=41,41²+41+41 is clearly divisible by 41.
+It turns out that the formula will produce 40 primes for the consecutive integer values 0≤n≤39. However, when n=40, 40²+40+41=40(40+1)+41 is divisible by 41, and certainly when n=41, 41²+41+41 is clearly divisible by 41.
 
 The incredible formula n²−79n+1601 was discovered, which produces 80 primes for the consecutive values 0≤n≤79. The product of the coefficients, −79 and 1601, is −126479.
 
@@ -62,7 +61,7 @@ def sieve_of_primes(until):
 
 
 def main():
-    solution = coefficient_product_from_quadratic_prime_expression(absolute_until=1000)
+    solution = coefficient_product_from_quadratic_prime_expression(absolute_until=10**3)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

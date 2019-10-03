@@ -1,23 +1,24 @@
 """
 Author: Berdal, Ole
 Created: 23.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=26:
 A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
 
-1/2	= 	0.5
-1/3	= 	0.(3)
-1/4	= 	0.25
-1/5	= 	0.2
-1/6	= 	0.1(6)
-1/7	= 	0.(142857)
-1/8	= 	0.125
-1/9	= 	0.(1)
-1/10	= 	0.1
-Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that 1/7 has a 6-digit recurring cycle.
+¹/₂ = 	0.5
+¹/₃	= 	0.(3)
+¹/₄	= 	0.25
+¹/₅	= 	0.2
+¹/₆	= 	0.1(6)
+¹/₇	= 	0.(142857)
+¹/₈	= 	0.125
+¹/₉	= 	0.(1)
+¹/₁₀= 	0.1
+Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that ¹/₇ has a 6-digit recurring cycle.
 
-Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
+Find the value of d < 1000 for which ¹/d contains the longest recurring cycle in its decimal fraction part.
 """
 import time
 start_time = time.time()
@@ -48,7 +49,7 @@ def is_full_reptend_prime(prime):
 
 
 def main():
-    solution = unit_fraction_with_longest_recurring_cycle(below=1000)
+    solution = unit_fraction_with_longest_recurring_cycle(below=10**3)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

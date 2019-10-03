@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 06.02.2019
-Edited: 08.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=21:
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
@@ -48,7 +48,7 @@ def proper_divisors_of(number):
 
 
 def main():
-    solution = sum_of_amicable_numbers_below(below=10000)
+    solution = sum_of_amicable_numbers_below(below=10**4)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

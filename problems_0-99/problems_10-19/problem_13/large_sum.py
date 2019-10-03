@@ -1,11 +1,11 @@
 """
 Author: Berdal, Ole
 Created: 18.01.2019
-Edited: 05.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=13:
-Work out the first ten number of the sum of the following one-hundred 50-digit numbers.
+Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -113,13 +113,7 @@ start_time = time.time()
 
 
 def first_digits_of_sum_of_numbers(digits, numbers):
-    numbers = numbers.split("\n")
-
-    total = 0
-    for number in numbers:
-        total += int(number)
-
-    return str(total)[0:digits]
+    return str(sum([int(n) for n in numbers.split('\n')]))[0:digits]
 
 
 def main():

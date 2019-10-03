@@ -1,15 +1,16 @@
 """
 Author: Berdal, Ole
 Created: 06.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=20:
 n! means n × (n − 1) × ... × 3 × 2 × 1
 
 For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
-and the sum of the number in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
-Find the sum of the number in the number 100!
+Find the sum of the digits in the number 100!
 """
 import time
 start_time = time.time()
@@ -27,7 +28,7 @@ def factorial(number):
 
 
 def main():
-    solution = sum_of_digits_in_factorial(number=100)
+    solution = sum_of_digits_in_factorial(number=10**2)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

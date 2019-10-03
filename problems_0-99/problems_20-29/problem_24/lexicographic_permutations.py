@@ -1,15 +1,15 @@
 """
 Author: Berdal, Ole
 Created: 09.02.2019
-Edited: 10.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=24:
-A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the number 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
+A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
 
 012   021   102   120   201   210
 
-What is the millionth lexicographic permutation of the number 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 """
 import time
 start_time = time.time()
@@ -53,7 +53,7 @@ def factorial(number):
 
 
 def main():
-    solution = nth_lexicographic_permutation(n=1000000, objects="0123456789")
+    solution = nth_lexicographic_permutation(n=10**6, objects='0123456789')
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

@@ -1,7 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 22.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=25:
 The Fibonacci sequence is defined by the recurrence relation:
@@ -21,7 +22,7 @@ F₉ = 34
 F₁₀ = 55
 F₁₁ = 89
 F₁₂ = 144
-The 12th term, F₁₂, is the first term to contain three digits.
+The 12ᵗʰ term, F₁₂, is the first term to contain three digits.
 
 What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 """
@@ -39,7 +40,7 @@ def index_of_first_term_with_x_digits(digits):
 
 
 def main():
-    solution = index_of_first_term_with_x_digits(digits=1000)
+    solution = index_of_first_term_with_x_digits(digits=10**3)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

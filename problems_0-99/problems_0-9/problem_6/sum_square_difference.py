@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
-Edited: 27.03.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=6:
 The sum of the squares of the first ten natural numbers is,
@@ -24,7 +24,7 @@ def difference_between_square_of_sum_and_sum_of_squares(until):
 
 
 def main():
-    solution = difference_between_square_of_sum_and_sum_of_squares(until=100)
+    solution = difference_between_square_of_sum_and_sum_of_squares(until=10**2)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

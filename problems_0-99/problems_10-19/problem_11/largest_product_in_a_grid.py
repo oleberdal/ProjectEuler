@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 01.10.2018
-Edited: 05.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=11:
 In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
@@ -37,24 +37,26 @@ start_time = time.time()
 
 
 def greatest_product_of_adjacent_numbers(input_grid, n_consecutive):
-    grid = [list(map(int, x.split(" "))) for x in input_grid.split('\n')]
+    grid = [list(map(int, x.split(' '))) for x in input_grid.split('\n')]
     products = []
-    for x in range(len(grid)):
-        out_of_xrange = x > len(grid[x]) - n_consecutive
-        for y in range(len(grid[x]) - n_consecutive + 1):
-            horizontal = 1
-            vertical = 1
-            diagonal_d = 1
-            diagonal_u = 1
+    for y in range(len(grid)):
+        out_of_yrange = y > len(grid) - n_consecutive
+        for x in range(len(grid[y])):
+            out_of_xrange = x > len(grid[y]) - n_consecutive
+            horizontal = vertical = diagonal_d = diagonal_u = 1
             for z in range(n_consecutive):
-                horizontal *= grid[x][y + z]
                 if not out_of_xrange:
-                    vertical *= grid[x + z][y]
-                    diagonal_d *= grid[x + z][y + z]
-                    diagonal_u *= grid[x + n_consecutive - z - 1][y + z]
-            products.append(horizontal)
+                    horizontal *= grid[y][x + z]
+                if not out_of_yrange:
+                    vertical *= grid[y + z][x]
+                if not out_of_xrange and not out_of_yrange:
+                    diagonal_d *= grid[y + z][x + z]
+                    diagonal_u *= grid[y + n_consecutive - z - 1][x + z]
             if not out_of_xrange:
+                products.append(horizontal)
+            if not out_of_yrange:
                 products.append(vertical)
+            if not out_of_xrange and not out_of_yrange:
                 products.append(diagonal_d)
                 products.append(diagonal_u)
 

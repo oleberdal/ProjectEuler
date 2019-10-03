@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
-Edited: 27.03.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=5:
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
@@ -28,7 +28,7 @@ def smallest_number_divisible_by(divisors):
 
 def reduce_to_primes(number, start=3):
     prime_factors = {}
-    for divisor in range(2 if not number % 2 else start, int(number ** 0.5) + 1, 1 + number % 2):
+    for divisor in range(2 if not number % 2 else start, int(number**0.5) + 1, 1 + number % 2):
         if not number % divisor:
             while not number % divisor:
                 number //= divisor

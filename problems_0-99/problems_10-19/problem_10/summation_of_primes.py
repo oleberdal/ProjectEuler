@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 01.10.2018
-Version: Python 3.7.0
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=10:
 The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
@@ -26,7 +26,7 @@ def find_prime_numbers_below(below):
 
 
 def main():
-    solution = find_prime_numbers_below(below=2000000)
+    solution = find_prime_numbers_below(below=2 * 10**6)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

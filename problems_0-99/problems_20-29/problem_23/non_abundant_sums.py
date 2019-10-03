@@ -1,7 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 08.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=23:
 A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
@@ -30,7 +31,7 @@ def find_sum_of_non_abundant_pairs():
 def proper_divisors_of(number):
     if number > 1:
         yield 1
-    for divisor in range(2, int(number ** 0.5) + 1):
+    for divisor in range(2, int(number**0.5) + 1):
         if not number % divisor:
             yield divisor
             if divisor * divisor != number:

@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
-Edited: 07.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=17:
 If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
@@ -48,7 +48,7 @@ def main():
 
     vocabulary = {int(element.split(':')[0]): element.split(':')[1] for element in line.split(',')}
 
-    solution = number_of_letters_between(start=1, end=1000, vocabulary=vocabulary)
+    solution = number_of_letters_between(start=1, end=10**3, vocabulary=vocabulary)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

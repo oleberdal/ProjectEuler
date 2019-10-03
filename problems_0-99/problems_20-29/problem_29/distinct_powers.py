@@ -1,7 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 18.03.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=29:
 Consider all integer combinations of aᵇ for 2 ≤ a ≤ 5 and 2 ≤ b ≤ 5:
@@ -21,11 +22,11 @@ start_time = time.time()
 
 
 def distinct_terms_of_exponential_sequence_between(lower, upper):
-    return len(set(a**b for a in range(lower, upper + 1) for b in range(lower, upper + 1)))
+    return len(set(a**b for b in range(lower, upper + 1) for a in range(lower, upper + 1)))
 
 
 def main():
-    solution = distinct_terms_of_exponential_sequence_between(lower=2, upper=100)
+    solution = distinct_terms_of_exponential_sequence_between(lower=2, upper=10**2)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

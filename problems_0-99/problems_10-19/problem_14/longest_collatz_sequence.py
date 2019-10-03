@@ -1,8 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
-Edited: 07.02.2019
-Version: Python 3.6.7
+Edited: 03.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=14:
 The following iterative sequence is defined for the set of positive integers:
@@ -24,23 +24,24 @@ start_time = time.time()
 
 
 def longest_collatz_chain_below(maximum):
-    collatz_chain_length = {1:1}
+    global collatz_chain_lengths
+    collatz_chain_lengths = {1: 1}
 
-    for x in range(maximum - 1, 1, -1):
-        collatz(number=x, collatz_chain=collatz_chain_length)
+    for n in range(maximum - 1, 1, -1):
+        collatz(number=n)
 
-    return list(collatz_chain_length)[list(collatz_chain_length.values()).index(max(collatz_chain_length.values()))]
+    return max(collatz_chain_lengths, key=collatz_chain_lengths.get)
 
 
-def collatz(number, collatz_chain):
-    if number not in collatz_chain:
+def collatz(number):
+    if number not in collatz_chain_lengths:
         next_collatz = number // 2 if not number % 2 else 3 * number + 1
-        collatz(number=next_collatz, collatz_chain=collatz_chain)
-        collatz_chain[number] = collatz_chain[next_collatz] + 1
+        collatz(number=next_collatz)
+        collatz_chain_lengths[number] = collatz_chain_lengths[next_collatz] + 1
 
 
 def main():
-    solution = longest_collatz_chain_below(maximum=1000000)
+    solution = longest_collatz_chain_below(maximum=10**6)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 
