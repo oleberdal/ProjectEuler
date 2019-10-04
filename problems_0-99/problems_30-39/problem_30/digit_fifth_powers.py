@@ -28,20 +28,20 @@ def sum_of_numbers_whose_sum_of_nth_power_of_digits_is_same(power):
 
     digits = [0] * number_of_digits
     while sum(digits) < 9 * number_of_digits:
-        for d in range(-1, -number_of_digits, -1):
-            if digits[d] < digits[d - 1]:
-                digits[d] += 1
+        for digit in range(-1, -number_of_digits, -1):
+            if digits[digit] < digits[digit - 1]:
+                digits[digit] += 1
                 break
             else:
-                digits[d] = 0
+                digits[digit] = 0
         else:
             digits[0] += 1
 
         temp_digits = digits.copy()
-        for d in str(sum([d**power for d in digits])):
-            if int(d) not in temp_digits:
+        for digit in str(sum([d**power for d in digits])):
+            if int(digit) not in temp_digits:
                 break
-            temp_digits.remove(int(d))
+            temp_digits.remove(int(digit))
         else:
             if len(temp_digits) < number_of_digits - 2 and (set(temp_digits) == {0} or temp_digits == []):
                 total += sum([digit**power for digit in digits])
