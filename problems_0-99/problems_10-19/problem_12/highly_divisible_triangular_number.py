@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 18.01.2019
-Edited: 03.10.2019
+Edited: 29.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=12:
@@ -27,42 +27,35 @@ start_time = time.time()
 
 
 def find_triangle_number_with_at_least_number_of_divisors(n_divisors):
-    n = 2
-    divisors_a, divisors_b = 1, number_of_divisors(number=n)
+    n, divisors_a, divisors_b = 2, 1, number_of_divisors(number=2)
 
     while divisors_a * divisors_b <= n_divisors:
         n += 1
-        divisors_a, divisors_b = divisors_b, number_of_divisors(number=n)
+        divisors_a, divisors_b = divisors_b, number_of_divisors(number=n // 2 if not n % 2 else n)
 
     return ((n - 1) * n) // 2
 
 
 def number_of_divisors(number):
-    if not number % 2:
-        number //= 2
-
     divisor = 1
-    for prime in reduce_to_primes(number=number):
-        divisor *= prime
+    for number_of_primes in number_of_different_primes_in_number(number=number):
+        divisor *= number_of_primes + 1
 
     return divisor
 
 
-def reduce_to_primes(number, start=3):
-    start = 2 if not number % 2 else start
-    bound = int(number**0.5) + 1
-    step = 1 if not number % 2 else 2
+def number_of_different_primes_in_number(number, start=3):
     prime_factors = []
-    for x in range(start, bound, step):
+    for x in range(2 if not number % 2 else start, int(number**0.5) + 1, 2):
         if not number % x:
             number //= x
-            prime_factors.append(2)
+            prime_factors.append(1)
             while not number % x:
                 number //= x
                 prime_factors[-1] += 1
-            return prime_factors + reduce_to_primes(number=number, start=x + 1 + x % 2)
+            return prime_factors + number_of_different_primes_in_number(number=number, start=x + 1 + x % 2)
     else:
-        return [2] if number > 1 else []
+        return [1] if number > 1 else []
 
 
 def main():

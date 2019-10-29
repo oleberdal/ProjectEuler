@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 18.01.2019
-Edited: 03.10.2019
+Edited: 18.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=13:
@@ -113,14 +113,12 @@ start_time = time.time()
 
 
 def first_digits_of_sum_of_numbers(digits, numbers):
-    return str(sum([int(n) for n in numbers.split('\n')]))[0:digits]
+    return str(sum(map(int, numbers)))[0:digits]
 
 
 def main():
     with open('data/50_digit_numbers', 'r') as file:
-        lines = file.readlines()
-
-    numbers = ''.join(lines)
+        numbers = file.readlines()
 
     solution = first_digits_of_sum_of_numbers(digits=10, numbers=numbers)
 

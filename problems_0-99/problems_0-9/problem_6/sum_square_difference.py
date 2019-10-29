@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 26.09.2018
-Edited: 03.10.2019
+Edited: 29.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=6:
@@ -20,7 +20,7 @@ start_time = time.time()
 
 
 def difference_between_square_of_sum_and_sum_of_squares(until):
-    return (until * (until + 1) // 2)**2 - sum([n**2 for n in range(1, until + 1)])
+    return (until * (until + 1) // 2)**2 - sum(tuple(n**2 for n in range(1, until + 1)))
 
 
 def main():

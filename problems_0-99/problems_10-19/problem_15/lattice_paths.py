@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
-Edited: 03.10.2019
+Edited: 18.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=15:
@@ -13,7 +13,7 @@ import time
 start_time = time.time()
 
 
-def routes_in_grid(x, y, routes):
+def routes_in_grid(x, y, routes={}):
     if (x, y) in routes:
         return routes[x, y]
     elif y > x:
@@ -27,7 +27,7 @@ def routes_in_grid(x, y, routes):
 
 
 def main():
-    solution = routes_in_grid(x=20, y=20, routes={})
+    solution = routes_in_grid(x=20, y=20)
 
     print('Solution: %s.\nExecution time: %s seconds.' % (solution, time.time() - start_time))
 

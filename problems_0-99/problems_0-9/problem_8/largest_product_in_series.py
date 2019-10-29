@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 03.10.2019
+Edited: 29.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=8:
@@ -36,7 +36,7 @@ start_time = time.time()
 
 def greatest_adjacent_product(digits, adjacent):
     greatest_product = -1
-    for sub_digit in [e for e in digits.split('0') if len(e) >= adjacent]:
+    for sub_digit in tuple(e for e in digits.split('0') if len(e) >= adjacent):
         for x in range(len(sub_digit) - adjacent + 1):
             greatest_product = max(greatest_product, multiply_sequence(sequence=sub_digit[x:x + adjacent]))
 

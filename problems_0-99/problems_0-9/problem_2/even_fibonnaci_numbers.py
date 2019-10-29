@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 25.09.2018
-Edited: 03.10.2019
+Edited: 29.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=2:
@@ -17,16 +17,14 @@ start_time = time.time()
 
 def fibonacci(below):
     fib = [1, 2]
-    next_fib = fib[-2] + fib[-1]
-    while next_fib <= below:
-        fib.append(next_fib)
-        next_fib = fib[-2] + fib[-1]
+    while fib[-1] <= below:
+        fib.append(fib[-1] + fib[-2])
 
-    return fib
+    return fib[:-1]
 
 
 def remove_odd(numbers):
-    return [n for n in numbers if not n % 2]
+    return tuple(n for n in numbers if not n % 2)
 
 
 def main():

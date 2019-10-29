@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
-Edited: 03.10.2019
+Edited: 18.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=14:
@@ -22,11 +22,10 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 import time
 start_time = time.time()
 
+collatz_chain_lengths = {1: 1}
+
 
 def longest_collatz_chain_below(maximum):
-    global collatz_chain_lengths
-    collatz_chain_lengths = {1: 1}
-
     for n in range(maximum - 1, 1, -1):
         collatz(number=n)
 

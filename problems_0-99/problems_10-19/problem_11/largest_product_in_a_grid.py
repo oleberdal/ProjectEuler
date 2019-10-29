@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 01.10.2018
-Edited: 03.10.2019
+Edited: 29.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=11:
@@ -37,7 +37,7 @@ start_time = time.time()
 
 
 def greatest_product_of_adjacent_numbers(input_grid, n_consecutive):
-    grid = [list(map(int, x.split(' '))) for x in input_grid.split('\n')]
+    grid = tuple(tuple(map(int, x.split(' '))) for x in input_grid.split('\n'))
     products = []
     for y in range(len(grid)):
         out_of_yrange = y > len(grid) - n_consecutive
@@ -65,9 +65,7 @@ def greatest_product_of_adjacent_numbers(input_grid, n_consecutive):
 
 def main():
     with open('data/grid', 'r') as file:
-        lines = file.readlines()
-
-    grid = ''.join(lines)
+        grid = ''.join(file.readlines())
 
     solution = greatest_product_of_adjacent_numbers(input_grid=grid, n_consecutive=4)
 

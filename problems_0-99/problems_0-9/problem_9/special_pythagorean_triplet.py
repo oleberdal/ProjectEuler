@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 28.09.2018
-Edited: 03.10.2019
+Edited: 29.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=9:
@@ -22,13 +22,9 @@ def find_pythagorean_triplet(roof):
     for a in range(1, int(roof / (2 + 2**0.5)) + 1):
         b = roof * ((roof / 2) - a) / (roof - a)
         if b.is_integer() and a != b:
-            return a, int(b), int(pythagorean(a, b))
+            return a, int(b), (a**2 + b**2)**0.5
 
     return [-1]
-
-
-def pythagorean(x, y):
-    return (x**2 + y**2)**0.5
 
 
 def multiply_sequence(sequence):

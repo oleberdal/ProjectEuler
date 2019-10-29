@@ -1,7 +1,8 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
-Version: Python 3.6.7
+Edited: 18.10.2019
+Version: Python 3.7.4
 
 https://projecteuler.net/problem=18:
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
@@ -40,16 +41,14 @@ start_time = time.time()
 def maximum_path_from_top_to_bottom(pyramid):
     if len(pyramid) == 1:
         return pyramid[0][0]
-    pyramid_a = [row[:-1] for row in pyramid[1:]]
-    pyramid_b = [row[1:] for row in pyramid[1:]]
-    return pyramid[0][0] + max(maximum_path_from_top_to_bottom(pyramid=pyramid_a), maximum_path_from_top_to_bottom(pyramid=pyramid_b))
+    return pyramid[0][0] + max(maximum_path_from_top_to_bottom(pyramid=[row[:-1] for row in pyramid[1:]]), maximum_path_from_top_to_bottom(pyramid=[row[1:] for row in pyramid[1:]]))
 
 
 def main():
     with open('data/pyramid', 'r') as file:
         lines = file.readlines()
 
-    pyramid = [[int(n) for n in line.split(' ')] for line in lines]
+    pyramid = [tuple(map(int, line.split(' '))) for line in lines]
 
     solution = maximum_path_from_top_to_bottom(pyramid=pyramid)
 

@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 05.02.2019
-Edited: 03.10.2019
+Edited: 18.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=16:
@@ -14,7 +14,7 @@ start_time = time.time()
 
 
 def sum_of_digits_of_number(number):
-    return sum([int(d) for d in str(number)])
+    return sum(map(int, str(number)))
 
 
 def main():

@@ -1,7 +1,7 @@
 """
 Author: Berdal, Ole
 Created: 18.03.2019
-Edited: 03.10.2019
+Edited: 18.10.2019
 Version: Python 3.7.4
 
 https://projecteuler.net/problem=29:
@@ -22,7 +22,7 @@ start_time = time.time()
 
 
 def distinct_terms_of_exponential_sequence_between(lower, upper):
-    return len(set(a**b for b in range(lower, upper + 1) for a in range(lower, upper + 1)))
+    return len(set(a**b for a in range(lower, upper + 1) for b in range(lower, upper + 1)))
 
 
 def main():
